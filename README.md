@@ -2,6 +2,8 @@
 
 ![UML](./assets/UML.png)
 
+![UML](./assets/stateUML.png)
+
 ## LAB - Component Based UI
 
 RESTy Phase 1: Begin work on the RESTy API testing application.
