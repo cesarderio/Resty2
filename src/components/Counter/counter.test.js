@@ -4,7 +4,7 @@ import { render, screen, fireEvent} from '@testing-library/react';
 import Counter from './index';
 
 describe('Counter test', () => {
-  test('counts as expected', () => {
+  it('counts as expected', () => {
     render(<Counter />);
 
     const button = screen.getByTestId('counter-button');
