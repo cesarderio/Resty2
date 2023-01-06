@@ -13,7 +13,6 @@ const Form = (props) => {
     e.preventDefault();
   };
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = {

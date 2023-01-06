@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 // import { useState, useEffect } from 'react';
 
 import axios from "axios";
@@ -12,7 +12,35 @@ import Footer from "./components/footer";
 import Form from "./components/form";
 import Results from "./components/results";
 
+const initialState = requestParams;
+
+const aReducer = ( state = initialState, action) => {
+  switch(action.type){
+    case 'ADD':
+      return {...state, results: [...state.results, action.payload]};
+    case: 'DELETE':
+      return {...state, results: state.results.filter(char => char !== action.payload)};
+    default:
+      return state;
+  }
+};
+ 
 const App = () => {
+
+  const [input, setInput] = useState('');
+
+
+  const [state, dispatch] = useReducer(aReducer, initialState);
+  console.log(state);
+
+  const add = () => {
+    let action = {
+      type: 'ADD',
+      payload: input,
+    }
+  }
+
+
   const [data, setData] = useState(null);
   const [requestParams, setRequestParams] = useState({});
   const [method, setMethod] = useState("get");
