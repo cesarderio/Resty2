@@ -1,19 +1,20 @@
 
 import '@testing-library/jest-dom';
 
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import Results from './index';
 
 describe('Results Component', () => {
-  test('renders ?? as expected', () => {
-    render(<Results greeting="Tester"/>);
+  test('renders results as expected', () => {
+    const data = {
+      name: 'Raphael',
+      method: 'get',
+      url: 'wickedResty.com',
+    };
+    render(<Results data={data}/>);
+    const result = screen.getByTestId('result-data')
 
-    // let h1 = screen.getByTestId('header-h1');
-    // expect(h1).toHaveTextContent('Hello Tester');
+    expect(result).toBeInTheDocument();
 
-    // another way to do this:
-    // let anotherH1Example = screen.getByText('Hello Tester');
-    // expect(anotherH1Example).toBeTruthy();
-    // expect(anotherH1Example).toBeInTheDocument();
   });
 });
