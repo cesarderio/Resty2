@@ -12,9 +12,9 @@ import Footer from "./components/footer";
 import Form from "./components/form";
 import Results from "./components/results";
 
-const initialState = requestParams;
+export const initialState = requestParams;
 
-const aReducer = ( state = initialState, action) => {
+export const aReducer = ( state = initialState, action) => {
   switch(action.type){
     case 'ADD':
       return {...state, results: [...state.results, action.payload]};
@@ -38,6 +38,15 @@ const App = () => {
       type: 'ADD',
       payload: input,
     }
+    dispatch(action);
+  }
+
+  const remove = () => {
+    let action = {
+      type: 'DELETE',
+      payload: input,
+    }
+    dispatch(action);
   }
 
 
